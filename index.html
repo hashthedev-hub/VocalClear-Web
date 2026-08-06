@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VocalClear | الذكاء الاصطناعي لعزل الصوت</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --surface-color: #1e1e1e;
+            --primary-color: #27AE60;
+            --text-color: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+        header {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--surface-color);
+            border-bottom: 1px solid #333;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+        select {
+            background: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid #444;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+        }
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        .subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .btn-download {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-download:hover { background-color: #219653; }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 20px;
+        }
+        .feature-card {
+            background-color: var(--surface-color);
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        .feature-card h3 { color: var(--primary-color); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">VocalClear</div>
+        <select id="langSwitch" onchange="changeLanguage(this.value)">
+            <option value="ar">العربية</option>
+            <option value="en">English</option>
+        </select>
+    </header>
+
+    <div class="hero">
+        <h1 data-key="title">عزل صوتي فائق الدقة</h1>
+        <p class="subtitle" data-key="subtitle">تطبيق احترافي مدعوم بالذكاء الاصطناعي لفصل المسارات الصوتية مباشرة من جهازك بأعلى جودة، مع تكامل كامل مع نظام ويندوز.</p>
+        <a href="#" class="btn-download" data-key="download">حمل النسخة النهائية الآن</a>
+    </div>
+
+    <div class="features">
+        <div class="feature-card">
+            <h3 data-key="feat1_title">تكامل مع النظام</h3>
+            <p data-key="feat1_desc">نقرة بزر الفأرة الأيمن على أي ملف وسيبدأ التطبيق بالعمل فوراً بفضل الدمج المباشر مع سجل ويندوز.</p>
+        </div>
+        <div class="feature-card">
+            <h3 data-key="feat2_title">مؤقت ذكي متكيف</h3>
+            <p data-key="feat2_desc">خوارزمية ذكية تقرأ أداء جهازك الفعلي لتعطيك وقتاً متبقياً دقيقاً جداً دون تذبذب.</p>
+        </div>
+        <div class="feature-card">
+            <h3 data-key="feat3_title">استقرار وحماية للذاكرة</h3>
+            <p data-key="feat3_desc">نظام متطور لإدارة الذاكرة لتجنب الانهيارات (Out of Memory) مع دعم مسارات الصوت المتعددة.</p>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            "ar": {
+                "title": "عزل صوتي فائق الدقة",
+                "subtitle": "تطبيق احترافي مدعوم بالذكاء الاصطناعي لفصل المسارات الصوتية مباشرة من جهازك بأعلى جودة، مع تكامل كامل مع نظام ويندوز.",
+                "download": "حمل النسخة النهائية الآن",
+                "feat1_title": "تكامل مع النظام",
+                "feat1_desc": "نقرة بزر الفأرة الأيمن على أي ملف وسيبدأ التطبيق بالعمل فوراً بفضل الدمج المباشر مع سجل ويندوز.",
+                "feat2_title": "مؤقت ذكي متكيف",
+                "feat2_desc": "خوارزمية ذكية تقرأ أداء جهازك الفعلي لتعطيك وقتاً متبقياً دقيقاً جداً دون تذبذب.",
+                "feat3_title": "استقرار وحماية للذاكرة",
+                "feat3_desc": "نظام متطور لإدارة الذاكرة لتجنب الانهيارات (Out of Memory) مع دعم مسارات الصوت المتعددة."
+            },
+            "en": {
+                "title": "Ultra-Precise Audio Separation",
+                "subtitle": "A professional AI-powered application to isolate audio tracks locally with the highest quality, fully integrated with Windows.",
+                "download": "Download Final Release",
+                "feat1_title": "Native Integration",
+                "feat1_desc": "Right-click any file to start processing immediately, thanks to seamless Windows Registry integration.",
+                "feat2_title": "Smart Adaptive ETA",
+                "feat2_desc": "An intelligent algorithm that monitors your hardware's performance to provide a highly accurate, monotonic countdown.",
+                "feat3_title": "Memory Stability",
+                "feat3_desc": "Advanced memory management to prevent VRAM fragmentation crashes, with full multi-track support."
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    elem.innerText = translations[lang][key];
+                }
+            });
+            document.title = lang === 'ar' ? "VocalClear | الذكاء الاصطناعي لعزل الصوت" : "VocalClear | AI Audio Separation";
+        }
+    </script>
+</body>
+</html>
