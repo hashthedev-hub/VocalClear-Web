@@ -32,7 +32,6 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
-        /* 🌟 تم إجبار حاوية الشعار على البقاء من اليسار لليمين لمنع اختفاء النص في النسخة العربية */
         .logo-container {
             display: flex;
             align-items: center;
@@ -116,18 +115,17 @@
 
     <header>
         <div class="logo-container">
-            <!-- 🌟 تم توسيع مساحة العرض وتغيير الذبذبات لتطابق موجات الصوت الحقيقية -->
+            <!-- الشعار مع الموجات الصوتية المحدثة والانسيابية -->
             <svg viewBox="0 0 250 50" height="45" width="250" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <!-- نمط Vocal: ذبذبات صوتية حادة وعشوائية (تمثل الضجيج) -->
                     <pattern id="messyAudio" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
                         <rect width="50" height="50" fill="#154360"/>
                         <path d="M0,25 L3,10 L7,40 L11,15 L14,35 L18,5 L22,45 L26,20 L30,30 L34,10 L38,40 L42,15 L46,35 L50,25" stroke="#5DADE2" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
                     </pattern>
-                    <!-- نمط Clear: خط مستقيم هادئ مع نبضة صوتية صافية واحدة -->
+                    <!-- تعديل الموجة لتكون بخطوط بيزيه الانسيابية الناعمة (Cubic Bezier) -->
                     <pattern id="smoothAudio" x="0" y="0" width="70" height="50" patternUnits="userSpaceOnUse">
                         <rect width="70" height="50" fill="#FFFFFF"/>
-                        <path d="M0,25 L20,25 C25,5 30,5 35,25 C40,45 45,45 50,25 L70,25" stroke="#154360" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M0,25 L20,25 C26,25 28,12 35,12 C42,12 44,38 51,38 C58,38 60,25 70,25" stroke="#154360" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     </pattern>
                     <filter id="glow">
                         <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.8"/>
@@ -138,7 +136,7 @@
             </svg>
         </div>
         <select id="langSwitch" onchange="changeLanguage(this.value)">
-            <option value="ar">العربية</option>
+            <option value="ar" selected>العربية</option>
             <option value="en">English</option>
         </select>
     </header>
@@ -146,7 +144,7 @@
     <div class="hero">
         <h1 data-key="title">عزل صوتي فائق الدقة والوضوح</h1>
         <p class="subtitle" data-key="subtitle">تطبيق احترافي مدعوم بالذكاء الاصطناعي لفصل المسارات الصوتية بأعلى جودة. يعمل مباشرة من جهازك لضمان خصوصيتك التامة، مع تكامل سلس مع نظام ويندوز.</p>
-        <a href="#" class="btn-download" data-key="download">حمل النسخة النهائية الآن</a>
+        <a href="#" class="btn-download" data-key="download">حمل النسخة النهائية الآن (Windows)</a>
     </div>
 
     <div class="features">
@@ -163,7 +161,7 @@
         <div class="feature-card">
             <div class="feature-icon">⚡</div>
             <h3 data-key="feat3_title">تكامل جذري مع ويندوز</h3>
-            <p data-key="feat3_desc">نقرة بزر الفأرة الأيمن على أي ملف صوتي أو مجلد كامل وسيبدأ التطبيق بعمله السحري فوراً في الخلفية، بفضل الدمج الذكي مع سجل النظام (Registry).</p>
+            <p data-key="feat3_desc">نقرة بزر الفأرة الأيمن على أي ملف صوتي أو مجلد كامل وسيبدأ التطبيق بعمله السحري فوراً، بفضل الدمج الذكي مع سجل النظام (Registry).</p>
         </div>
     </div>
 
@@ -211,6 +209,12 @@
             });
             document.title = lang === 'ar' ? "VocalClear | الذكاء الاصطناعي لعزل الصوت" : "VocalClear | AI Audio Separation";
         }
+
+        // 🌟 تشغيل الدالة فور تحميل الصفحة لضمان مزامنة الواجهة مع القائمة المنسدلة
+        window.addEventListener('DOMContentLoaded', () => {
+            const currentLang = document.getElementById('langSwitch').value;
+            changeLanguage(currentLang);
+        });
     </script>
 </body>
 </html>
