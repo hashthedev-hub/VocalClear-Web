@@ -6,11 +6,12 @@
     <title>VocalClear | الذكاء الاصطناعي لعزل الصوت</title>
     <style>
         :root {
-            --bg-color: #121212;
-            --surface-color: #1e1e1e;
-            --primary-color: #27AE60;
-            --text-color: #ffffff;
-            --text-muted: #a0a0a0;
+            --bg-color: #0f1115;
+            --surface-color: #1a1d24;
+            --primary-blue: #2980B9;
+            --dark-blue: #154360;
+            --text-color: #f1f1f1;
+            --text-muted: #a0aab5;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -19,6 +20,7 @@
             margin: 0;
             padding: 0;
             transition: all 0.3s ease;
+            line-height: 1.6;
         }
         header {
             padding: 20px 50px;
@@ -26,57 +28,115 @@
             justify-content: space-between;
             align-items: center;
             background-color: var(--surface-color);
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #2c313c;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+        
+        /* 🌟 الشعار المدمج بالأمواج */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
         select {
             background: var(--bg-color);
             color: var(--text-color);
             border: 1px solid #444;
-            padding: 8px 12px;
-            border-radius: 5px;
+            padding: 8px 15px;
+            border-radius: 6px;
             cursor: pointer;
             font-family: inherit;
+            font-weight: bold;
+            outline: none;
         }
+        select:hover { border-color: var(--primary-blue); }
+
         .hero {
             text-align: center;
-            padding: 100px 20px;
+            padding: 90px 20px;
+            background: radial-gradient(circle at center, #1a2533 0%, var(--bg-color) 70%);
         }
-        h1 { font-size: 3rem; margin-bottom: 10px; }
-        .subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        h1 { font-size: 3.2rem; margin-bottom: 15px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .subtitle { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 45px; max-width: 650px; margin-left: auto; margin-right: auto; }
+        
         .btn-download {
-            background-color: var(--primary-color);
+            background-color: var(--primary-blue);
             color: white;
-            padding: 15px 30px;
+            padding: 16px 35px;
             text-decoration: none;
             border-radius: 8px;
             font-size: 1.2rem;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(41, 128, 185, 0.4);
         }
-        .btn-download:hover { background-color: #219653; }
+        .btn-download:hover { 
+            background-color: #1F618D; 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(41, 128, 185, 0.6);
+        }
+
         .features {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            padding: 50px 20px;
+            gap: 25px;
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
         .feature-card {
             background-color: var(--surface-color);
-            padding: 30px;
-            border-radius: 10px;
+            padding: 35px 25px;
+            border-radius: 12px;
             width: 300px;
             text-align: center;
-            border: 1px solid #333;
+            border: 1px solid #2c313c;
+            transition: transform 0.3s, border-color 0.3s;
         }
-        .feature-card h3 { color: var(--primary-color); }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-blue);
+        }
+        .feature-card h3 { color: var(--primary-blue); margin-top: 0; font-size: 1.4rem;}
+        .feature-icon { font-size: 2.5rem; margin-bottom: 15px; }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid #2c313c;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">VocalClear</div>
+        <div class="logo-container">
+            <!-- SVG التحفة الفنية: الأمواج داخل النص -->
+            <svg viewBox="0 0 240 50" height="45" width="240" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <!-- نمط Vocal: أزرق غامق مع موجة فوضوية متداخلة -->
+                    <pattern id="messyPattern" x="0" y="0" width="40" height="50" patternUnits="userSpaceOnUse">
+                        <rect width="40" height="50" fill="#154360"/>
+                        <path d="M0,25 L8,5 L16,45 L24,10 L32,35 L40,25" stroke="#5DADE2" stroke-width="2.5" fill="none" stroke-linejoin="miter"/>
+                    </pattern>
+                    <!-- نمط Clear: أبيض مع موجة هادئة وصافية -->
+                    <pattern id="smoothPattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+                        <rect width="50" height="50" fill="#FFFFFF"/>
+                        <path d="M0,25 Q12.5,15 25,25 T50,25" stroke="#154360" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    </pattern>
+                    <!-- ظل خفيف لإبراز النص على الخلفية الداكنة -->
+                    <filter id="glow">
+                        <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.8"/>
+                    </filter>
+                </defs>
+                <text x="0" y="40" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="42" fill="url(#messyPattern)" filter="url(#glow)">Vocal</text>
+                <text x="110" y="40" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="42" fill="url(#smoothPattern)" filter="url(#glow)">Clear</text>
+            </svg>
+        </div>
         <select id="langSwitch" onchange="changeLanguage(this.value)">
             <option value="ar">العربية</option>
             <option value="en">English</option>
@@ -84,49 +144,58 @@
     </header>
 
     <div class="hero">
-        <h1 data-key="title">عزل صوتي فائق الدقة</h1>
-        <p class="subtitle" data-key="subtitle">تطبيق احترافي مدعوم بالذكاء الاصطناعي لفصل المسارات الصوتية مباشرة من جهازك بأعلى جودة، مع تكامل كامل مع نظام ويندوز.</p>
+        <h1 data-key="title">عزل صوتي فائق الدقة والوضوح</h1>
+        <p class="subtitle" data-key="subtitle">تطبيق احترافي مدعوم بالذكاء الاصطناعي لفصل المسارات الصوتية بأعلى جودة. يعمل مباشرة من جهازك لضمان خصوصيتك التامة، مع تكامل سلس مع نظام ويندوز.</p>
         <a href="#" class="btn-download" data-key="download">حمل النسخة النهائية الآن</a>
     </div>
 
     <div class="features">
         <div class="feature-card">
-            <h3 data-key="feat1_title">تكامل مع النظام</h3>
-            <p data-key="feat1_desc">نقرة بزر الفأرة الأيمن على أي ملف وسيبدأ التطبيق بالعمل فوراً بفضل الدمج المباشر مع سجل ويندوز.</p>
+            <div class="feature-icon">🎬</div>
+            <h3 data-key="feat1_title">دعم الفيديو وتعدد المسارات</h3>
+            <p data-key="feat1_desc">استلم ملفات الفيديو وعالجها مباشرة! يمكنك الحفاظ على مسارات الصوت الأصلية، ومعالجة عدة مسارات في وقت واحد، ثم استخراجها بصيغتك المفضلة (فيديو أو صوت).</p>
         </div>
         <div class="feature-card">
-            <h3 data-key="feat2_title">مؤقت ذكي متكيف</h3>
-            <p data-key="feat2_desc">خوارزمية ذكية تقرأ أداء جهازك الفعلي لتعطيك وقتاً متبقياً دقيقاً جداً دون تذبذب.</p>
+            <div class="feature-icon">🔒</div>
+            <h3 data-key="feat2_title">مجاني، محلي، وبدون قيود</h3>
+            <p data-key="feat2_desc">المعالجة تتم 100% داخل عتاد جهازك. لا حاجة للإنترنت، لا توجد اشتراكات مدفوعة، ولا نستخدم نظام النقاط (Tokens)، ولا يوجد حد أقصى لحجم أو عدد الملفات.</p>
         </div>
         <div class="feature-card">
-            <h3 data-key="feat3_title">استقرار وحماية للذاكرة</h3>
-            <p data-key="feat3_desc">نظام متطور لإدارة الذاكرة لتجنب الانهيارات (Out of Memory) مع دعم مسارات الصوت المتعددة.</p>
+            <div class="feature-icon">⚡</div>
+            <h3 data-key="feat3_title">تكامل جذري مع ويندوز</h3>
+            <p data-key="feat3_desc">نقرة بزر الفأرة الأيمن على أي ملف صوتي أو مجلد كامل وسيبدأ التطبيق بعمله السحري فوراً في الخلفية، بفضل الدمج الذكي مع سجل النظام (Registry).</p>
         </div>
     </div>
+
+    <footer>
+        <p data-key="footer">© 2026 VocalClear. جميع الحقوق محفوظة.</p>
+    </footer>
 
     <script>
         const translations = {
             "ar": {
-                "title": "عزل صوتي فائق الدقة",
-                "subtitle": "تطبيق احترافي مدعوم بالذكاء الاصطناعي لفصل المسارات الصوتية مباشرة من جهازك بأعلى جودة، مع تكامل كامل مع نظام ويندوز.",
-                "download": "حمل النسخة النهائية الآن",
-                "feat1_title": "تكامل مع النظام",
-                "feat1_desc": "نقرة بزر الفأرة الأيمن على أي ملف وسيبدأ التطبيق بالعمل فوراً بفضل الدمج المباشر مع سجل ويندوز.",
-                "feat2_title": "مؤقت ذكي متكيف",
-                "feat2_desc": "خوارزمية ذكية تقرأ أداء جهازك الفعلي لتعطيك وقتاً متبقياً دقيقاً جداً دون تذبذب.",
-                "feat3_title": "استقرار وحماية للذاكرة",
-                "feat3_desc": "نظام متطور لإدارة الذاكرة لتجنب الانهيارات (Out of Memory) مع دعم مسارات الصوت المتعددة."
+                "title": "عزل صوتي فائق الدقة والوضوح",
+                "subtitle": "تطبيق احترافي مدعوم بالذكاء الاصطناعي لفصل المسارات الصوتية بأعلى جودة. يعمل مباشرة من جهازك لضمان خصوصيتك التامة، مع تكامل سلس مع نظام ويندوز.",
+                "download": "حمل النسخة النهائية الآن (Windows)",
+                "feat1_title": "دعم الفيديو وتعدد المسارات",
+                "feat1_desc": "استلم ملفات الفيديو وعالجها مباشرة! يمكنك الحفاظ على مسارات الصوت الأصلية، ومعالجة عدة مسارات في وقت واحد، ثم استخراجها بصيغتك المفضلة (فيديو أو صوت).",
+                "feat2_title": "مجاني، محلي، وبدون قيود",
+                "feat2_desc": "المعالجة تتم 100% داخل عتاد جهازك. لا حاجة للإنترنت، لا توجد اشتراكات مدفوعة، ولا نستخدم نظام النقاط (Tokens)، ولا يوجد حد أقصى لحجم أو عدد الملفات.",
+                "feat3_title": "تكامل جذري مع ويندوز",
+                "feat3_desc": "نقرة بزر الفأرة الأيمن على أي ملف صوتي أو مجلد كامل وسيبدأ التطبيق بعمله السحري فوراً، بفضل الدمج الذكي مع سجل النظام (Registry).",
+                "footer": "© 2026 VocalClear. جميع الحقوق محفوظة."
             },
             "en": {
-                "title": "Ultra-Precise Audio Separation",
-                "subtitle": "A professional AI-powered application to isolate audio tracks locally with the highest quality, fully integrated with Windows.",
-                "download": "Download Final Release",
-                "feat1_title": "Native Integration",
-                "feat1_desc": "Right-click any file to start processing immediately, thanks to seamless Windows Registry integration.",
-                "feat2_title": "Smart Adaptive ETA",
-                "feat2_desc": "An intelligent algorithm that monitors your hardware's performance to provide a highly accurate, monotonic countdown.",
-                "feat3_title": "Memory Stability",
-                "feat3_desc": "Advanced memory management to prevent VRAM fragmentation crashes, with full multi-track support."
+                "title": "Ultra-Precise AI Audio Separation",
+                "subtitle": "A professional AI-powered tool to isolate audio tracks with studio quality. Runs entirely on your machine for total privacy, with seamless Windows integration.",
+                "download": "Download Final Release (Windows)",
+                "feat1_title": "Video & Multi-Track Ready",
+                "feat1_desc": "Process video files directly! Keep the original tracks, separate multiple audio streams simultaneously, and export them in your preferred format (Video or Audio).",
+                "feat2_title": "100% Local & Unlimited",
+                "feat2_desc": "All processing happens securely on your hardware. No internet connection required, no subscriptions, no pay-per-token, and absolutely no file size limits.",
+                "feat3_title": "Native Windows Integration",
+                "feat3_desc": "Right-click any audio, video, or entire folder to start the magic immediately, thanks to our smart Windows Registry integration.",
+                "footer": "© 2026 VocalClear. All rights reserved."
             }
         };
 
