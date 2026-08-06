@@ -32,10 +32,11 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
-        /* 🌟 الشعار المدمج بالأمواج */
+        /* 🌟 تم إجبار حاوية الشعار على البقاء من اليسار لليمين لمنع اختفاء النص في النسخة العربية */
         .logo-container {
             display: flex;
             align-items: center;
+            direction: ltr; 
         }
         
         select {
@@ -115,26 +116,25 @@
 
     <header>
         <div class="logo-container">
-            <!-- SVG التحفة الفنية: الأمواج داخل النص -->
-            <svg viewBox="0 0 240 50" height="45" width="240" xmlns="http://www.w3.org/2000/svg">
+            <!-- 🌟 تم توسيع مساحة العرض وتغيير الذبذبات لتطابق موجات الصوت الحقيقية -->
+            <svg viewBox="0 0 250 50" height="45" width="250" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <!-- نمط Vocal: أزرق غامق مع موجة فوضوية متداخلة -->
-                    <pattern id="messyPattern" x="0" y="0" width="40" height="50" patternUnits="userSpaceOnUse">
-                        <rect width="40" height="50" fill="#154360"/>
-                        <path d="M0,25 L8,5 L16,45 L24,10 L32,35 L40,25" stroke="#5DADE2" stroke-width="2.5" fill="none" stroke-linejoin="miter"/>
+                    <!-- نمط Vocal: ذبذبات صوتية حادة وعشوائية (تمثل الضجيج) -->
+                    <pattern id="messyAudio" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+                        <rect width="50" height="50" fill="#154360"/>
+                        <path d="M0,25 L3,10 L7,40 L11,15 L14,35 L18,5 L22,45 L26,20 L30,30 L34,10 L38,40 L42,15 L46,35 L50,25" stroke="#5DADE2" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
                     </pattern>
-                    <!-- نمط Clear: أبيض مع موجة هادئة وصافية -->
-                    <pattern id="smoothPattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
-                        <rect width="50" height="50" fill="#FFFFFF"/>
-                        <path d="M0,25 Q12.5,15 25,25 T50,25" stroke="#154360" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <!-- نمط Clear: خط مستقيم هادئ مع نبضة صوتية صافية واحدة -->
+                    <pattern id="smoothAudio" x="0" y="0" width="70" height="50" patternUnits="userSpaceOnUse">
+                        <rect width="70" height="50" fill="#FFFFFF"/>
+                        <path d="M0,25 L20,25 C25,5 30,5 35,25 C40,45 45,45 50,25 L70,25" stroke="#154360" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     </pattern>
-                    <!-- ظل خفيف لإبراز النص على الخلفية الداكنة -->
                     <filter id="glow">
                         <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.8"/>
                     </filter>
                 </defs>
-                <text x="0" y="40" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="42" fill="url(#messyPattern)" filter="url(#glow)">Vocal</text>
-                <text x="110" y="40" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="42" fill="url(#smoothPattern)" filter="url(#glow)">Clear</text>
+                <text x="0" y="40" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="42" fill="url(#messyAudio)" filter="url(#glow)">Vocal</text>
+                <text x="108" y="40" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="42" fill="url(#smoothAudio)" filter="url(#glow)">Clear</text>
             </svg>
         </div>
         <select id="langSwitch" onchange="changeLanguage(this.value)">
