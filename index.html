@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VocalClear | الذكاء الاصطناعي لعزل الصوت</title>
+    <title>VocalClear | AI Audio Isolation</title>
     <style>
         :root {
             --bg-color: #0f1115;
@@ -62,14 +62,15 @@
         .btn-download {
             background-color: var(--primary-blue);
             color: white;
-            padding: 16px 35px;
+            padding: 16px 45px;
             text-decoration: none;
             border-radius: 8px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
             transition: all 0.3s;
             display: inline-block;
             box-shadow: 0 4px 15px rgba(41, 128, 185, 0.4);
+            margin-bottom: 25px;
         }
         .btn-download:hover { 
             background-color: #1F618D; 
@@ -77,20 +78,65 @@
             box-shadow: 0 6px 20px rgba(41, 128, 185, 0.6);
         }
 
-        .features {
+        .secondary-buttons {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .icon-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 22px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .icon-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .btn-github {
+            background-color: #24292e;
+            color: #ffffff;
+            border-color: #24292e;
+        }
+        .btn-github:hover {
+            background-color: transparent;
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        .btn-gumroad {
+            background-color: #FF90E8;
+            color: #000000;
+            border-color: #FF90E8;
+        }
+        .btn-gumroad:hover {
+            background-color: transparent;
+            color: #FF90E8;
+            border-color: #FF90E8;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 25px;
-            padding: 60px 20px;
-            max-width: 1100px;
+            padding: 40px 20px 80px 20px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         .feature-card {
             background-color: var(--surface-color);
             padding: 35px 25px;
             border-radius: 12px;
-            width: 300px;
             text-align: center;
             border: 1px solid #2c313c;
             transition: transform 0.3s, border-color 0.3s;
@@ -99,7 +145,8 @@
             transform: translateY(-5px);
             border-color: var(--primary-blue);
         }
-        .feature-card h3 { color: var(--primary-blue); margin-top: 0; font-size: 1.4rem;}
+        .feature-card h3 { color: var(--primary-blue); margin-top: 0; font-size: 1.3rem;}
+        .feature-card p { font-size: 0.95rem; }
         .feature-icon { font-size: 2.5rem; margin-bottom: 15px; }
 
         footer {
@@ -115,14 +162,12 @@
 
     <header>
         <div class="logo-container">
-            <!-- الشعار مع الموجات الصوتية المحدثة والانسيابية -->
             <svg viewBox="0 0 250 50" height="45" width="250" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <pattern id="messyAudio" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
                         <rect width="50" height="50" fill="#154360"/>
                         <path d="M0,25 L3,10 L7,40 L11,15 L14,35 L18,5 L22,45 L26,20 L30,30 L34,10 L38,40 L42,15 L46,35 L50,25" stroke="#5DADE2" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
                     </pattern>
-                    <!-- تعديل الموجة لتكون بخطوط بيزيه الانسيابية الناعمة (Cubic Bezier) -->
                     <pattern id="smoothAudio" x="0" y="0" width="70" height="50" patternUnits="userSpaceOnUse">
                         <rect width="70" height="50" fill="#FFFFFF"/>
                         <path d="M0,25 L20,25 C26,25 28,12 35,12 C42,12 44,38 51,38 C58,38 60,25 70,25" stroke="#154360" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -136,63 +181,93 @@
             </svg>
         </div>
         <select id="langSwitch" onchange="changeLanguage(this.value)">
-            <option value="ar" selected>العربية</option>
-            <option value="en">English</option>
+            <option value="en" selected>English</option>
+            <option value="ar">العربية</option>
         </select>
     </header>
 
     <div class="hero">
-        <h1 data-key="title">عزل صوتي فائق الدقة والوضوح</h1>
-        <p class="subtitle" data-key="subtitle">تطبيق احترافي مدعوم بالذكاء الاصطناعي لفصل المسارات الصوتية بأعلى جودة. يعمل مباشرة من جهازك لضمان خصوصيتك التامة، مع تكامل سلس مع نظام ويندوز.</p>
-        <a href="#" class="btn-download" data-key="download">حمل النسخة النهائية الآن (Windows)</a>
+        <h1 data-key="title">Ultra-Precise AI Audio Isolation</h1>
+        <p class="subtitle" data-key="subtitle">A professional AI-powered tool to isolate vocals and audio tracks with studio quality. Runs entirely on your machine for total privacy, with seamless Windows integration.</p>
+        
+        <a href="https://github.com/HashTheDev-hub/VocalClear-Updates/releases/download/v1.0.0/VocalClear.zip" class="btn-download" data-key="btn_direct">Direct Download 📥</a>
+        
+        <div class="secondary-buttons">
+            <a href="https://github.com/HashTheDev-hub/VocalClear-Updates" class="icon-btn btn-github">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                <span data-key="btn_github">View on GitHub</span>
+            </a>
+
+            <a href="https://hashthedev.gumroad.com/l/VocalClear" class="icon-btn btn-gumroad">
+                <svg viewBox="0 0 32 32" fill="currentColor">
+                    <path d="M16,0C7.164,0,0,7.164,0,16s7.164,16,16,16s16-7.164,16-16S24.836,0,16,0z M21.967,20.082 c-1.393,2.441-3.666,3.662-6.104,3.662c-3.775,0-6.709-3.08-6.709-6.793c0-3.684,2.906-6.764,6.711-6.764 c2.705,0,5.137,1.555,6.074,3.904h-3.41c-0.658-1.047-1.748-1.637-2.898-1.637c-1.922,0-3.486,1.545-3.486,3.619 c0,2.15,1.564,3.715,3.486,3.715c1.176,0,2.23-0.562,2.836-1.502h-2.309v-2.451h5.811V20.082z"/>
+                </svg>
+                <span data-key="btn_gumroad">View on Gumroad</span>
+            </a>
+        </div>
     </div>
 
     <div class="features">
         <div class="feature-card">
-            <div class="feature-icon">🎬</div>
-            <h3 data-key="feat1_title">دعم الفيديو وتعدد المسارات</h3>
-            <p data-key="feat1_desc">استلم ملفات الفيديو وعالجها مباشرة! يمكنك الحفاظ على مسارات الصوت الأصلية، ومعالجة عدة مسارات في وقت واحد، ثم استخراجها بصيغتك المفضلة (فيديو أو صوت).</p>
+            <div class="feature-icon">🔒</div>
+            <h3 data-key="feat1_title">100% Local & Lossless</h3>
+            <p data-key="feat1_desc">All processing happens offline. Enjoy uncompromised, lossless audio isolation with unlimited usage.</p>
         </div>
         <div class="feature-card">
-            <div class="feature-icon">🔒</div>
-            <h3 data-key="feat2_title">مجاني، محلي، وبدون قيود</h3>
-            <p data-key="feat2_desc">المعالجة تتم 100% داخل عتاد جهازك. لا حاجة للإنترنت، لا توجد اشتراكات مدفوعة، ولا نستخدم نظام النقاط (Tokens)، ولا يوجد حد أقصى لحجم أو عدد الملفات.</p>
+            <div class="feature-icon">🎬</div>
+            <h3 data-key="feat2_title">Multi-Track & Total Control</h3>
+            <p data-key="feat2_desc">Smart support for video files (MKV/MP4). Isolate specific tracks and take full control over output formats and directories.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">⚡</div>
-            <h3 data-key="feat3_title">تكامل جذري مع ويندوز</h3>
-            <p data-key="feat3_desc">نقرة بزر الفأرة الأيمن على أي ملف صوتي أو مجلد كامل وسيبدأ التطبيق بعمله السحري فوراً، بفضل الدمج الذكي مع سجل النظام (Registry).</p>
+            <h3 data-key="feat3_title">Smart ETA & Native Integration</h3>
+            <p data-key="feat3_desc">Drag & drop or right-click files for instant processing, powered by a smart ETA engine that learns your hardware's speed.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🌐</div>
+            <h3 data-key="feat4_title">Global Language Support</h3>
+            <p data-key="feat4_desc">The application features a built-in UI supporting 9 different languages for a seamless worldwide experience.</p>
         </div>
     </div>
 
     <footer>
-        <p data-key="footer">© 2026 VocalClear. جميع الحقوق محفوظة.</p>
+        <p data-key="footer">© 2026 VocalClear. All rights reserved.</p>
     </footer>
 
     <script>
         const translations = {
             "ar": {
                 "title": "عزل صوتي فائق الدقة والوضوح",
-                "subtitle": "تطبيق احترافي مدعوم بالذكاء الاصطناعي لفصل المسارات الصوتية بأعلى جودة. يعمل مباشرة من جهازك لضمان خصوصيتك التامة، مع تكامل سلس مع نظام ويندوز.",
-                "download": "حمل النسخة النهائية الآن (Windows)",
-                "feat1_title": "دعم الفيديو وتعدد المسارات",
-                "feat1_desc": "استلم ملفات الفيديو وعالجها مباشرة! يمكنك الحفاظ على مسارات الصوت الأصلية، ومعالجة عدة مسارات في وقت واحد، ثم استخراجها بصيغتك المفضلة (فيديو أو صوت).",
-                "feat2_title": "مجاني، محلي، وبدون قيود",
-                "feat2_desc": "المعالجة تتم 100% داخل عتاد جهازك. لا حاجة للإنترنت، لا توجد اشتراكات مدفوعة، ولا نستخدم نظام النقاط (Tokens)، ولا يوجد حد أقصى لحجم أو عدد الملفات.",
-                "feat3_title": "تكامل جذري مع ويندوز",
-                "feat3_desc": "نقرة بزر الفأرة الأيمن على أي ملف صوتي أو مجلد كامل وسيبدأ التطبيق بعمله السحري فوراً، بفضل الدمج الذكي مع سجل النظام (Registry).",
+                "subtitle": "تطبيق احترافي مدعوم بالذكاء الاصطناعي لعزل المسارات الصوتية بأعلى جودة. يعمل مباشرة من جهازك لضمان خصوصيتك التامة، مع تكامل سلس مع نظام ويندوز.",
+                "btn_direct": "تحميل مباشر 📥",
+                "btn_gumroad": "استعرض عبر <bdi>Gumroad</bdi>",
+                "btn_github": "استعرض عبر <bdi>GitHub</bdi>",
+                "feat1_title": "معالجة محلية وجودة كاملة",
+                "feat1_desc": "تعمل المعالجة محلياً 100% دون الحاجة للإنترنت. استمتع بجودة عزل أصلية مع استخدام غير محدود.",
+                "feat2_title": "تعدد المسارات والتحكم",
+                "feat2_desc": "دعم ذكي لملفات الفيديو (MKV/MP4). استخرج مسارات متعددة، وتحكم بصيغ الإخراج ومسارات الحفظ بمرونة تامة.",
+                "feat3_title": "مؤقت ذكي وتكامل جذري",
+                "feat3_desc": "اسحب ملفاتك أو استخدم \"كليك يمين\" للمعالجة الفورية، مع خوارزمية وقت ذكية (ETA) تتعلم من سرعة عتاد جهازك.",
+                "feat4_title": "دعم عالمي للغات",
+                "feat4_desc": "واجهة البرنامج تدعم 9 لغات عالمية لضمان تجربة سلسة للمستخدمين من مختلف أنحاء العالم.",
                 "footer": "© 2026 VocalClear. جميع الحقوق محفوظة."
             },
             "en": {
-                "title": "Ultra-Precise AI Audio Separation",
-                "subtitle": "A professional AI-powered tool to isolate audio tracks with studio quality. Runs entirely on your machine for total privacy, with seamless Windows integration.",
-                "download": "Download Final Release (Windows)",
-                "feat1_title": "Video & Multi-Track Ready",
-                "feat1_desc": "Process video files directly! Keep the original tracks, separate multiple audio streams simultaneously, and export them in your preferred format (Video or Audio).",
-                "feat2_title": "100% Local & Unlimited",
-                "feat2_desc": "All processing happens securely on your hardware. No internet connection required, no subscriptions, no pay-per-token, and absolutely no file size limits.",
-                "feat3_title": "Native Windows Integration",
-                "feat3_desc": "Right-click any audio, video, or entire folder to start the magic immediately, thanks to our smart Windows Registry integration.",
+                "title": "Ultra-Precise AI Audio Isolation",
+                "subtitle": "A professional AI-powered tool to isolate vocals and audio tracks with studio quality. Runs entirely on your machine for total privacy, with seamless Windows integration.",
+                "btn_direct": "Direct Download 📥",
+                "btn_gumroad": "View on Gumroad",
+                "btn_github": "View on GitHub",
+                "feat1_title": "100% Local & Lossless",
+                "feat1_desc": "All processing happens offline. Enjoy uncompromised, lossless audio isolation with unlimited usage.",
+                "feat2_title": "Multi-Track & Total Control",
+                "feat2_desc": "Smart support for video files (MKV/MP4). Isolate specific tracks and take full control over output formats and directories.",
+                "feat3_title": "Smart ETA & Native Integration",
+                "feat3_desc": "Drag & drop or right-click files for instant processing, powered by a smart ETA engine that learns your hardware's speed.",
+                "feat4_title": "Global Language Support",
+                "feat4_desc": "The application features a built-in UI supporting 9 different languages for a seamless worldwide experience.",
                 "footer": "© 2026 VocalClear. All rights reserved."
             }
         };
@@ -204,13 +279,12 @@
             document.querySelectorAll('[data-key]').forEach(elem => {
                 const key = elem.getAttribute('data-key');
                 if (translations[lang][key]) {
-                    elem.innerText = translations[lang][key];
+                    elem.innerHTML = translations[lang][key];
                 }
             });
-            document.title = lang === 'ar' ? "VocalClear | الذكاء الاصطناعي لعزل الصوت" : "VocalClear | AI Audio Separation";
+            document.title = lang === 'ar' ? "VocalClear | الذكاء الاصطناعي لعزل الصوت" : "VocalClear | AI Audio Isolation";
         }
 
-        // 🌟 تشغيل الدالة فور تحميل الصفحة لضمان مزامنة الواجهة مع القائمة المنسدلة
         window.addEventListener('DOMContentLoaded', () => {
             const currentLang = document.getElementById('langSwitch').value;
             changeLanguage(currentLang);
